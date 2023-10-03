@@ -152,7 +152,7 @@
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <img class="mt-2" src="../img/logo.png" width="150">
+                        <img class="mt-2" src="../img/logo2.png" width="85">
 
 
 
@@ -341,6 +341,10 @@
 
         <!-- Page level custom scripts -->
         <script src="../js/demo/datatables-demo.js"></script>
+
+        <!-- Scripst para Mascara -->
+        <script src="../js/mascaras.js"></script>       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script> 
 
     </body>
 

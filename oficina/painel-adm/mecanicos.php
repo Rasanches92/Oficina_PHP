@@ -13,7 +13,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 ?>
 
 <div class="row mt-4 mb-4">
-    <a type="button" class="btn-primary btn-sm ml-3 d-none d-md-block" href="index.php?pag=<?php echo $pag ?>&funcao=novo">Novo Mecânico</a>
+    <a type="button" class="btn-secondary btn-sm ml-3 d-none d-md-block" href="index.php?pag=<?php echo $pag ?>&funcao=novo">Novo Mecânico</a>
     <a type="button" class="btn-primary btn-sm ml-3 d-block d-sm-none" href="index.php?pag=<?php echo $pag ?>&funcao=novo">+</a>
     
 </div>
@@ -113,29 +113,29 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
                 <div class="modal-body">
                     <div class="form-group">
                         <label >Nome</label>
-                        <input value="<?php echo @$nome2 ?>" type="text" class="form-control" id="nome-mec" name="nome-mec" placeholder="Nome">
+                        <input value="<?php echo @$nome2 ?>" type="text" class="form-control" id="nome_mec" name="nome_mec" placeholder="Nome">
                     </div>                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label >CPF</label>
-                                <input value="<?php echo @$cpf2 ?>" type="text" class="form-control" id="cpf" name="cpf-mec" placeholder="CPF">
+                                <input value="<?php echo @$cpf2 ?>" type="text" class="form-control" id="cpf" name="cpf_mec" placeholder="CPF">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label >Telefone</label>
-                                <input value="<?php echo @$telefone2 ?>" type="text" class="form-control" id="telefone" name="telefone-mec" placeholder="Telefone">
+                                <input value="<?php echo @$telefone2 ?>" type="text" class="form-control" id="telefone" name="telefone_mec" placeholder="Telefone">
                             </div>                            
                         </div>
                     </div>
                     <div class="form-group">
                         <label >E-mail</label>
-                        <input value="<?php echo @$email2 ?>" type="text" class="form-control" id="email" name="email-mec" placeholder="E-mail">
+                        <input value="<?php echo @$email2 ?>" type="text" class="form-control" id="email" name="email_mec" placeholder="E-mail">
                     </div>
                     <div class="form-group">
                         <label >Endereço</label>
-                        <input value="<?php echo @$endereco2 ?>" type="text" class="form-control" id="endereco" name="emcereco-mec" placeholder="Endereço">
+                        <input value="<?php echo @$endereco2 ?>" type="text" class="form-control" id="endereco" name="endereco_mec" placeholder="Endereço">
                     </div>                  
 
                     <small>
@@ -150,6 +150,7 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
                 <input value="<?php echo @$_GET['id'] ?>" type="hidden" name="txtid2" id="txtid2">
                 <input value="<?php echo @$cpf2 ?>" type="hidden" name="antigo" id="antigo">
+                <input value="<?php echo @$email2 ?>" type="hidden" name="antigo2" id="antigo2">
 
                     <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="submit" name="btn-salvar" id="btn-salvar" class="btn btn-primary">Salvar</button>
@@ -213,7 +214,7 @@ if (@$_GET["funcao"] != null && @$_GET["funcao"] == "excluir") {
 
 
 
-<!--AJAX PARA INSERÇÃO E EDIÇÃO DOS DADOS COM IMAGEM -->
+<!--AJAX PARA INSERÇÃO E EDIÇÃO DOS DADOS COM OU SEM IMAGEM -->
 <script type="text/javascript">
     $("#form").submit(function () {
         var pag = "<?=$pag?>";
@@ -226,23 +227,15 @@ if (@$_GET["funcao"] != null && @$_GET["funcao"] == "excluir") {
             data: formData,
 
             success: function (mensagem) {
-
                 $('#mensagem').removeClass()
-
-                if (mensagem.trim() == "Salvo com Sucesso!!") {
-                    
+                if (mensagem.trim() == "Salvo com Sucesso!") {                   
                     //$('#nome').val('');
-                    //$('#cpf').val('');
                     $('#btn-fechar').click();
                     window.location = "index.php?pag="+pag;
-
                 } else {
-
                     $('#mensagem').addClass('text-danger')
                 }
-
                 $('#mensagem').text(mensagem)
-
             },
 
             cache: false,
@@ -278,14 +271,10 @@ if (@$_GET["funcao"] != null && @$_GET["funcao"] == "excluir") {
                 data: $('form').serialize(),
                 dataType: "text",
                 success: function (mensagem) {
-
-                    if (mensagem.trim() === 'Excluído com Sucesso!!') {
-
-
+                    if (mensagem.trim() === 'Excluído com Sucesso!') {
                         $('#btn-cancelar-excluir').click();
                         window.location = "index.php?pag=" + pag;
                     }
-
                     $('#mensagem_excluir').text(mensagem)
 
 
